@@ -16,18 +16,18 @@ export function Header() {
   }, []);
 
   return (
-    <header className="fixed top-2 left-0 w-full z-50">
+    <header className="fixed top-1 left-0 w-full z-50">
       <motion.div
         initial={false}
         animate={{
-          maxWidth: isScrolled ? "56rem" : "60rem",
+          maxWidth: isScrolled ? "56rem" : "62rem",
           paddingLeft: isScrolled ? "2.0rem" : "2.5rem",
-          paddingRight: isScrolled ? "1.5rem" : "2.5rem",
+          paddingRight: isScrolled ? "2.0rem" : "2.5rem",
           borderRadius: isScrolled ? "9999px" : "0px",
-          y: isScrolled ? 0 : 10,
+          y: isScrolled ? 5 : 10,
         }}
         transition={{
-          duration: 0.4,
+          duration: 0.25,
           ease: "easeInOut",
         }}
         className={cn(
@@ -40,7 +40,7 @@ export function Header() {
         <motion.div whileHover={{ scale: 1.1 }}>
           <a href="" className="flex gap-2 items-center">
             <RocketIcon className="text-secondary" size={20} />
-            <h1 className="text-lg text-gradient font-bold">AO</h1>
+            <h1 className="text-md text-gradient font-bold">AO</h1>
           </a>
         </motion.div>
 

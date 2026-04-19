@@ -8,7 +8,7 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 100);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -38,7 +38,7 @@ export function Header() {
         )}
       >
         <motion.div whileHover={{ scale: 1.1 }}>
-          <a href="" className="flex gap-2 items-center">
+          <a href="#" className="flex gap-2 items-center">
             <RocketIcon className="text-secondary" size={20} />
             <h1 className="text-md text-gradient font-bold">AO</h1>
           </a>
@@ -54,10 +54,10 @@ export function Header() {
           <a href="#projects" className="hover:text-primary transition">
             Projetos
           </a>
-          <a href="#" className="hover:text-primary transition">
+          <a href="#skills" className="hover:text-primary transition">
             Habilidades
           </a>
-          <a href="#" className="hover:text-primary transition">
+          <a href="#contact" className="hover:text-primary transition">
             Contato
           </a>
         </nav>

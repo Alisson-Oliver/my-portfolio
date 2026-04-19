@@ -23,10 +23,12 @@ export function ProjectCard({
   links,
 }: ProjectCardProps) {
   return (
-    <GlassCard glowColor="purple" hoverEffect={false} className="">
-      <h3 className="text-xl text-main hover:text-primary font-semibold">
-        {title}
-      </h3>
+    <GlassCard
+      glowColor="purple"
+      hoverEffect={false}
+      className="hover:text-primary"
+    >
+      <h3 className="text-xl text-main  font-semibold">{title}</h3>
       <p className="text-text-secondary mt-2 text-sm ">{description}</p>
 
       <div className="flex flex-wrap gap-2 mt-4">

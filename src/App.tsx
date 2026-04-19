@@ -1,4 +1,5 @@
 import { AboutCard } from "./components/AboutCard";
+import { Header } from "./components/Header";
 import { ProjectCard } from "./components/ProjectCard";
 import { SkillCard } from "./components/SkillCard";
 import { projects } from "./data/projects";
@@ -28,7 +29,7 @@ function App() {
           />
         ))}
       </div>
-      <div className="grid grid-cols-2 gap-5 mx-80 my-20">
+      <div className="grid grid-cols-2 gap-5 mx-80 mt-20">
         {aboutSkills.map((aboutSkill) => (
           <AboutCard
             icon={aboutSkill.icon}

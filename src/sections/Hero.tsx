@@ -20,7 +20,7 @@ export function Hero() {
           de software.
         </p>
         <div className="flex gap-3 justify-center mt-4 text-sm">
-          <a href="" className="bg-primary p-2 px-5 rounded-sm">
+          <a href="#projects" className="bg-primary p-2 px-5 rounded-sm">
             Ver Projetos
           </a>
           <a href="" className="border border-primary p-2 px-5 rounded-sm">

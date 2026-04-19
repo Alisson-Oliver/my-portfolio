@@ -48,7 +48,7 @@ export function Header() {
           <a href="#" className="hover:text-primary transition">
             Início
           </a>
-          <a href="#" className="hover:text-primary transition">
+          <a href="#about" className="hover:text-primary transition">
             Sobre
           </a>
           <a href="#" className="hover:text-primary transition">

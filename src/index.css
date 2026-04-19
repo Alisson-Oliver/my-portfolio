@@ -44,6 +44,7 @@
   }
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
   }
 }
 
@@ -69,14 +70,14 @@
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
   background: #0a0512;
 }
 ::-webkit-scrollbar-thumb {
   background: #4c1d95;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #c084fc;

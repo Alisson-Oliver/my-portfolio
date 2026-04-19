@@ -8,7 +8,7 @@ export function About() {
       className="bg-space-purple min-h-screen flex items-center"
       id="about"
     >
-      <div className="grid grid-cols-2 mx-20 screen gap-8 ">
+      <div className="grid grid-cols-2 mx-20 gap-8 ">
         <div className="flex flex-col gap-5">
           <div className="flex items-center gap-2 text-primary">
             <SquareCode size={22} />

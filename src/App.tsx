@@ -7,6 +7,7 @@ import { skills } from "./data/skills";
 import { aboutSkills } from "./data/softSkills";
 import { About } from "./sections/About";
 import { Hero } from "./sections/Hero";
+import { Projects } from "./sections/Projects";
 
 function App() {
   return (
@@ -14,17 +15,8 @@ function App() {
       <Header />
       <Hero />
       <About />
-      {/* <div className="grid grid-cols-2 gap-5 m-20">
-        {projects.map((project) => (
-          <ProjectCard
-            title={project.title}
-            description={project.description}
-            id={project.id}
-            techStack={project.techStack}
-            links={{ repository: project.repoLink, demo: project.demoLink }}
-          />
-        ))}
-      </div>
+      <Projects />
+      {/* 
       <div className="grid grid-cols-4 gap-5 m-20">
         {skills.map((skill) => (
           <SkillCard

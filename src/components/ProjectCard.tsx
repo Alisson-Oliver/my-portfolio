@@ -26,18 +26,23 @@ export function ProjectCard({
     <GlassCard
       glowColor="purple"
       hoverEffect={false}
-      className="hover:text-primary"
+      className="flex flex-col h-full hover:text-primary py-8"
     >
-      <h3 className="text-xl text-main  font-semibold">{title}</h3>
-      <p className="text-text-secondary mt-2 text-sm ">{description}</p>
+      <div>
+        <h3 className="text-xl text-main font-semibold">{title}</h3>
 
-      <div className="flex flex-wrap gap-2 mt-4">
-        {techStack.map((tech) => (
-          <Badge title={tech} />
-        ))}
+        <p className="text-text-secondary mt-2 text-sm min-h-[60px]">
+          {description}
+        </p>
+
+        <div className="flex flex-wrap gap-2">
+          {techStack.map((tech) => (
+            <Badge key={tech} title={tech} />
+          ))}
+        </div>
       </div>
 
-      <div className="flex justify-between mt-5">
+      <div className="flex justify-between mt-auto pt-5">
         <div className="flex gap-4">
           <a
             href={links.repository}
@@ -46,6 +51,7 @@ export function ProjectCard({
             <LuGithub size={15} />
             <span className="text-xs">Código</span>
           </a>
+
           {links.demo && (
             <a
               href={links.demo}
@@ -56,6 +62,7 @@ export function ProjectCard({
             </a>
           )}
         </div>
+
         <motion.div
           whileHover={{ x: 5 }}
           transition={{ ease: [0.4, 0, 0.2, 0.5] }}

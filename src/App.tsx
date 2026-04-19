@@ -5,6 +5,7 @@ import { SkillCard } from "./components/SkillCard";
 import { projects } from "./data/projects";
 import { skills } from "./data/skills";
 import { aboutSkills } from "./data/softSkills";
+import { About } from "./sections/About";
 import { Hero } from "./sections/Hero";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
     <div>
       <Header />
       <Hero />
+      <About />
       {/* <div className="grid grid-cols-2 gap-5 m-20">
         {projects.map((project) => (
           <ProjectCard
@@ -32,15 +34,7 @@ function App() {
           />
         ))}
       </div>
-      <div className="grid grid-cols-2 gap-5 mx-80 mt-20">
-        {aboutSkills.map((aboutSkill) => (
-          <AboutCard
-            icon={aboutSkill.icon}
-            description={aboutSkill.description}
-            title={aboutSkill.title}
-          />
-        ))}
-      </div> */}
+       */}
     </div>
   );
 }

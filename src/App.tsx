@@ -5,11 +5,14 @@ import { SkillCard } from "./components/SkillCard";
 import { projects } from "./data/projects";
 import { skills } from "./data/skills";
 import { aboutSkills } from "./data/softSkills";
+import { Hero } from "./sections/Hero";
 
 function App() {
   return (
     <div>
-      <div className="grid grid-cols-2 gap-5 m-20">
+      <Header />
+      <Hero />
+      {/* <div className="grid grid-cols-2 gap-5 m-20">
         {projects.map((project) => (
           <ProjectCard
             title={project.title}
@@ -37,7 +40,7 @@ function App() {
             title={aboutSkill.title}
           />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { Badge } from "./Badge";
 import { GlassCard } from "./GlassCard";
 import { LuGithub } from "react-icons/lu";
 import { motion } from "framer-motion";
+import { cn } from "../lib/cn";
 
 interface ProjectCardProps {
   id: string;
@@ -22,6 +23,9 @@ export function ProjectCard({
   techStack,
   links,
 }: ProjectCardProps) {
+  const visibleTechs = techStack.slice(0, 4);
+  const remainingCount = techStack.length - 4;
+
   return (
     <GlassCard
       glowColor="purple"
@@ -35,10 +39,17 @@ export function ProjectCard({
           {description}
         </p>
 
-        <div className="flex flex-wrap gap-2 mt-4 md:mt-0">
-          {techStack.map((tech) => (
+        <div className="flex flex-wrap gap-2 mt-4">
+          {visibleTechs.map((tech) => (
             <Badge key={tech} title={tech} />
           ))}
+
+          {remainingCount > 0 && (
+            <Badge
+              className={cn("bg-secondary text-badge")}
+              title={`+${remainingCount}`}
+            />
+          )}
         </div>
       </div>
 
@@ -46,6 +57,7 @@ export function ProjectCard({
         <div className="flex gap-4">
           <a
             href={links.repository}
+            target="_blank"
             className="flex items-center gap-2 text-secondary hover:text-primary transition-colors"
           >
             <LuGithub size={15} />
@@ -55,6 +67,7 @@ export function ProjectCard({
           {links.demo && (
             <a
               href={links.demo}
+              target="_blank"
               className="flex items-center gap-2 text-secondary hover:text-primary transition-colors"
             >
               <SquareArrowOutUpRight size={15} />

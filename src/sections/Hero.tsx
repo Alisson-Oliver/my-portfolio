@@ -1,10 +1,17 @@
 import { Stars } from "lucide-react";
 import { heroData } from "../data/hero/hero";
+import { StarBackground } from "../components/StarBackground";
 
 export function Hero() {
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
-      <div className="flex flex-col items-center text-center gap-4 max-w-xl">
+    <section className="relative isolate overflow-hidden min-h-screen flex items-center justify-center px-4">
+      <StarBackground
+        intensity={0.6}
+        showCloud={true}
+        showSparkles={true}
+        showStars={true}
+      />
+      <div className="relative z-10 flex flex-col items-center text-center gap-4 max-w-xl">
         <div className="flex items-center gap-2 text-secondary px-2 py-1.5 border border-primary-border rounded-2xl bg-badge text-[0.65rem] font-black">
           <Stars size={15} />
           <span>{heroData.badgeLabel}</span>
@@ -35,6 +42,6 @@ export function Hero() {
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

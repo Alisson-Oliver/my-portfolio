@@ -3,6 +3,7 @@ import { ContactCard } from "../components/ContactCard";
 import { contacts } from "../data/contacts/contactsList";
 import { motion, type Variants } from "framer-motion";
 import { contactsData } from "../data/contacts/contacts";
+import { StarBackground } from "../components/StarBackground";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -50,10 +51,16 @@ const letterVariants: Variants = {
 export function Contact() {
   return (
     <section
-      className="min-h-screen flex items-center justify-center py-20"
+      className="relative isolate overflow-hidden min-h-screen flex items-center justify-center py-20"
       id="contact"
     >
-      <div className="flex flex-col items-center justify-center max-w-4xl w-full">
+      <StarBackground
+        intensity={0.2}
+        showStars={true}
+        showSparkles={true}
+        showCloud={true}
+      />
+      <div className="relative z-10 flex flex-col items-center justify-center max-w-4xl w-full">
         <div className="flex items-center gap-2 text-secondary px-2 py-1.5 border border-primary-border rounded-2xl bg-badge text-[0.65rem] font-black uppercase tracking-wider">
           <SatelliteDish size={15} />
           <span>{contactsData.badgeLabel}</span>

@@ -1,16 +1,15 @@
 import {
   Server,
   FileCode,
-  Boxes,
+  Globe,
   Database,
-  Cylinder,
-  Layers,
-  Cloud,
   Container,
   Terminal,
   Wrench,
   GitBranch,
   Workflow,
+  Monitor,
+  Cloud,
 } from "lucide-react";
 
 import type { LucideIcon } from "lucide-react";
@@ -31,10 +30,20 @@ export const skills: Skill[] = [
     icon: Server,
     title: "Backend",
     techStack: [
-      { name: "Node.js", icon: Server },
       { name: "TypeScript", icon: FileCode },
-      { name: "NestJS", icon: Boxes },
-      { name: "Express", icon: Layers },
+      { name: "JavaScript", icon: FileCode },
+      { name: "Node.js", icon: Server },
+      { name: "Java", icon: FileCode },
+      { name: "Python", icon: FileCode },
+    ],
+  },
+  {
+    icon: Globe,
+    title: "Frontend",
+    techStack: [
+      { name: "React.js", icon: Globe },
+      { name: "Next.js", icon: Globe },
+      { name: "Tailwind CSS", icon: Globe },
     ],
   },
   {
@@ -42,26 +51,21 @@ export const skills: Skill[] = [
     title: "Banco de Dados",
     techStack: [
       { name: "PostgreSQL", icon: Database },
-      { name: "MongoDB", icon: Cylinder },
-      { name: "Prisma", icon: Layers },
+      { name: "SQLite", icon: Database },
+      { name: "MongoDB", icon: Database },
     ],
   },
   {
     icon: Cloud,
-    title: "Infra & Deploy",
+    title: "Ferramentas & Infra",
     techStack: [
       { name: "Docker", icon: Container },
-      { name: "Vercel / Render", icon: Cloud },
       { name: "Linux", icon: Terminal },
-    ],
-  },
-  {
-    icon: Wrench,
-    title: "Ferramentas",
-    techStack: [
       { name: "Git", icon: GitBranch },
       { name: "GitHub", icon: GitBranch },
-      { name: "CI/CD", icon: Workflow },
+      { name: "VS Code", icon: Monitor },
+      { name: "Figma", icon: Monitor },
+      { name: "Postman", icon: Wrench },
     ],
   },
 ];

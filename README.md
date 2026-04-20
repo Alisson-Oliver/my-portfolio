@@ -1,73 +1,134 @@
-# React + TypeScript + Vite
+# My Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfólio pessoal desenvolvido com React + TypeScript + Vite, com foco em apresentar:
 
-Currently, two official plugins are available:
+- quem eu sou;
+- projetos selecionados;
+- stack e habilidades;
+- canais de contato.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Objetivo
 
-## React Compiler
+Este projeto funciona como minha vitrine técnica e profissional.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Os principais objetivos são:
 
-## Expanding the ESLint configuration
+- centralizar minhas informações profissionais em uma única página;
+- exibir projetos e tecnologias de forma clara;
+- manter uma base simples de evoluir (conteúdo em arquivos de dados e interface separada por seções/componentes).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Stack utilizada
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React 19
+- TypeScript
+- Vite 8
+- Tailwind CSS 4
+- Framer Motion
+- Lucide React e React Icons
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Estrutura atual do projeto
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+A aplicação está organizada em blocos simples:
+
+```text
+src/
+  App.tsx                 # Orquestra as seções da página
+  main.tsx                # Bootstrap da aplicação
+  index.css               # Tema, tokens visuais e estilos globais
+
+  sections/               # Blocos principais da landing page
+    Hero.tsx
+    About.tsx
+    Projects.tsx
+    Skills.tsx
+    Contact.tsx
+
+  components/             # Componentes reutilizáveis das seções
+    Header.tsx
+    AboutCard.tsx
+    ProjectCard.tsx
+    SkillCard.tsx
+    ContactCard.tsx
+
+  data/                   # Conteúdo separado da UI (por domínio)
+    hero/hero.ts
+    about/about.ts
+    about/softSkills.ts
+    projects/projects.ts
+    projects/projectsList.ts
+    skills/skills.ts
+    skills/skillsList.ts
+    contacts/contactsList.ts
+
+  utils/
+    getAlias.ts           # Gera alias a partir do nome completo
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Como o app está estruturado em runtime
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+`App.tsx` monta a página nesta ordem:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Header
+2. Hero
+3. About
+4. Projects
+5. Skills
+6. Contact
+
+Cada seção consome dados de `src/data/...`, o que facilita editar conteúdo sem mexer na estrutura dos componentes.
+
+## Configurações que estão em uso
+
+### Vite
+
+- Plugins ativos: React e Tailwind via `@tailwindcss/vite`.
+- Alias configurado:
+  - `@` -> `./src`
+
+Arquivo: `vite.config.ts`.
+
+### TypeScript
+
+- Projeto dividido em:
+  - `tsconfig.app.json` (aplicação React)
+  - `tsconfig.node.json` (ambiente Node, ex.: Vite config)
+- Paths ativos:
+  - `@/*` -> `./src/*`
+  - `@components/*` -> `./src/components/*`
+
+### Tailwind e tema
+
+- Tailwind v4 com `@import "tailwindcss"` em `src/index.css`.
+- Tokens de cor, tipografia e utilitários visuais (como `.glass` e `.text-gradient`) definidos no CSS global.
+
+### ESLint
+
+Configuração com:
+
+- `@eslint/js`
+- `typescript-eslint`
+- `eslint-plugin-react-hooks`
+- `eslint-plugin-react-refresh`
+
+Arquivo: `eslint.config.js`.
+
+## Scripts
+
+- `npm run dev` -> sobe ambiente de desenvolvimento
+- `npm run build` -> executa TypeScript build + Vite build
+- `npm run preview` -> preview da build de produção
+- `npm run lint` -> validação com ESLint
+
+## Como rodar localmente
+
+```bash
+npm install
+npm run dev -- --host
 ```
+
+Depois, acesse a URL exibida no terminal (normalmente `http://localhost:5173`).
+
+## Licença
+
+Este repositório usa licença proprietária com uso restrito ao autor.
+Veja o arquivo `LICENSE` para os termos completos.

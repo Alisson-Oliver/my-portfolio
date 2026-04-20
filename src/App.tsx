@@ -5,7 +5,7 @@ import { Hero } from "./sections/Hero";
 import { Projects } from "./sections/Projects";
 import { Skills } from "./sections/Skills";
 
-function App() {
+function HomePage() {
   return (
     <div>
       <Header />
@@ -18,4 +18,4 @@ function App() {
   );
 }
 
-export default App;
+export default HomePage;

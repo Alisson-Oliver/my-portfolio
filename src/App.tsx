@@ -1,21 +1,8 @@
-import { Header } from "./components/Header";
-import { About } from "./sections/About";
-import { Contact } from "./sections/Contact";
-import { Hero } from "./sections/Hero";
-import { Projects } from "./sections/Projects";
-import { Skills } from "./sections/Skills";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./app/router";
 
-function HomePage() {
-  return (
-    <div>
-      <Header />
-      <Hero />
-      <About />
-      <Projects />
-      <Skills />
-      <Contact />
-    </div>
-  );
+function App() {
+  return <RouterProvider router={router} />;
 }
 
-export default HomePage;
+export default App;

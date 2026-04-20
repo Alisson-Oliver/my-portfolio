@@ -13,6 +13,6 @@ export const aboutData: AboutData = {
     gradient: " robustas e escaláveis",
   },
   description:
-    "Gosto de encarar desafios técnicos de frente e transformar ideias em sistemas que entregam o seu propósito e mais um pocuo.",
+    "Gosto de encarar desafios técnicos de frente e transformar ideias em sistemas que entregam o seu propósito e mais um pouco.",
   resume: "A melhor solução para problemas simples, são soluções simples",
 };

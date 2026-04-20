@@ -62,6 +62,10 @@
     background-clip: text;
   }
 
+  .button-gradient {
+    background: linear-gradient(135deg, #a855f7 15%, #c084fc 85%);
+  }
+
   .neon-glow {
     box-shadow:
       0 0 20px rgba(192, 132, 252, 0.3),

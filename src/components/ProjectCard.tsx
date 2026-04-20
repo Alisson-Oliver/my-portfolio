@@ -31,7 +31,7 @@ export function ProjectCard({
       <div>
         <h3 className="text-xl text-main font-semibold">{title}</h3>
 
-        <p className="text-text-secondary mt-2 text-sm min-h-[60px]">
+        <p className="text-text-secondary mt-2 text-sm min-h-15">
           {description}
         </p>
 

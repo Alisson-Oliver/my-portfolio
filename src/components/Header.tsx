@@ -18,11 +18,11 @@ export function Header() {
   }, []);
 
   const navLinks = [
-    { href: "#", label: "Início" },
-    { href: "#about", label: "Sobre" },
-    { href: "#projects", label: "Projetos" },
-    { href: "#skills", label: "Habilidades" },
-    { href: "#contact", label: "Contato" },
+    { href: "/#", label: "Início" },
+    { href: "/#about", label: "Sobre" },
+    { href: "/#projects", label: "Projetos" },
+    { href: "/#skills", label: "Habilidades" },
+    { href: "/#contact", label: "Contato" },
   ];
 
   return (

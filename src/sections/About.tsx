@@ -23,14 +23,10 @@ export function About() {
           </h2>
 
           <div className="space-y-4">
-            <p className="text-text-secondary text-base md:text-md">
-              Desenvolvedor com paixão por desvendar desafios técnicos e
-              construir soluções que fazem a diferença.
+            <p className="text-text-secondary text-sm md:text-md">
+              {aboutData.description}
             </p>
-            <p className="text-primary text-sm italic">
-              Acredito que o melhor código é aquele que resolve problemas reais
-              de forma elegante.
-            </p>
+            <p className="text-primary text-sm italic">{aboutData.resume}</p>
           </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">

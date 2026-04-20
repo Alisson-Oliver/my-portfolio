@@ -4,6 +4,7 @@ import { GlassCard } from "./GlassCard";
 import { LuGithub } from "react-icons/lu";
 import { motion } from "framer-motion";
 import { cn } from "../lib/cn";
+import { Link } from "react-router-dom";
 
 interface ProjectCardProps {
   id: string;
@@ -33,13 +34,13 @@ export function ProjectCard({
       className="flex flex-col h-full hover:text-primary py-8"
     >
       <div>
-        <h3 className="text-xl text-main font-semibold">{title}</h3>
+        <h3 className="text-2xl text-main font-semibold">{title}</h3>
 
         <p className="text-text-secondary mt-2 text-sm min-h-15">
           {description}
         </p>
 
-        <div className="flex flex-wrap gap-2 mt-4">
+        <div className="flex flex-wrap gap-2">
           {visibleTechs.map((tech) => (
             <Badge key={tech} title={tech} />
           ))}
@@ -60,8 +61,8 @@ export function ProjectCard({
             target="_blank"
             className="flex items-center gap-2 text-secondary hover:text-primary transition-colors"
           >
-            <LuGithub size={15} />
-            <span className="text-xs">Código</span>
+            <LuGithub size={17} />
+            <span className="text-sm">Código</span>
           </a>
 
           {links.demo && (
@@ -80,13 +81,13 @@ export function ProjectCard({
           whileHover={{ x: 5 }}
           transition={{ ease: [0.4, 0, 0.2, 0.5] }}
         >
-          <a
-            href={id}
+          <Link
+            to={`/projeto/${id}`}
             className="flex items-center gap-2 text-secondary hover:text-primary transition-colors"
           >
-            <span className="text-xs">Detalhes</span>
-            <ArrowRight size={15} />
-          </a>
+            <span className="text-sm">Detalhes</span>
+            <ArrowRight size={17} />
+          </Link>
         </motion.div>
       </div>
     </GlassCard>

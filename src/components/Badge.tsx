@@ -9,11 +9,13 @@ export function Badge({ className, title }: BadgeProps) {
   return (
     <div
       className={cn(
-        "text-secondary px-2  inline border-primary-border border rounded-2xl  bg-badge text-[0.65rem] font-black",
+        "inline-flex items-center justify-center",
+        "px-2 py-0.5",
+        "text-secondary border-primary-border border rounded-2xl bg-badge text-[0.65rem] font-black",
         className,
       )}
     >
-      {title}
+      <span className="mt-0.5">{title}</span>
     </div>
   );
 }

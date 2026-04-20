@@ -15,7 +15,7 @@ export function Skills() {
           {skillsData.title.main}{" "}
           <span className="text-gradient">{skillsData.title.gradient}</span>
         </h2>
-        <p className="text-secondary text-center text-sm md:text-md">
+        <p className="text-secondary text-center text-sm w-[90%] md:text-md">
           {skillsData.description}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mt-10 w-[90%]">

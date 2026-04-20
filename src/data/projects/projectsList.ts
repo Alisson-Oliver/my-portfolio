@@ -72,6 +72,5 @@ export const projects: Project[] = [
       "JWT",
     ],
     repoLink: "#",
-    demoLink: "#",
   },
 ];

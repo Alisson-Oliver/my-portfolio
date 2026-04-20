@@ -17,8 +17,10 @@ export function AboutCard({ icon: Icon, title, description }: AboutCardProps) {
       <div className="bg-space-purple-deep rounded-md h-11 w-11 flex items-center justify-center">
         <Icon size={20} className="text-secondary" />
       </div>
-      <h4 className="mt-4 font-semibold">{title}</h4>
-      <span className="text-xs text-primary">{description}</span>
+      <h4 className="text-xs md:text-md mt-4 font-semibold">{title}</h4>
+      <span className="text-[0.7rem] md:text-xs text-primary">
+        {description}
+      </span>
     </GlassCard>
   );
 }

@@ -13,7 +13,7 @@ interface SkillCardProps {
 
 export function SkillCard({ icon: Icon, title, techStack }: SkillCardProps) {
   return (
-    <GlassCard glowColor="purple" className="h-64" hoverEffect={true}>
+    <GlassCard glowColor="purple" className="h-auto" hoverEffect={true}>
       <div className="flex items-center gap-2.5">
         <div className="bg-space-purple-deep rounded-md p-2.5">
           <Icon size={16} className="text-secondary" />
@@ -21,7 +21,7 @@ export function SkillCard({ icon: Icon, title, techStack }: SkillCardProps) {
         <h4 className="font-semibold">{title}</h4>
       </div>
 
-      <ul className="mt-4 flex flex-col gap-2">
+      <ul className="mt-4 flex flex-col gap-2 ml-1.5">
         {techStack.map((tech) => {
           const TechIcon = tech.icon;
 

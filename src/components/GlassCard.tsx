@@ -1,6 +1,6 @@
 import type React from "react";
 import { motion } from "framer-motion";
-import { cn } from "../lib/utils";
+import { cn } from "../lib/cn";
 
 interface GlassCardProps {
   className?: string;

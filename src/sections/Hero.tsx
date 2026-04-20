@@ -1,4 +1,5 @@
 import { Stars } from "lucide-react";
+import { heroData } from "../data/hero/hero";
 
 export function Hero() {
   return (
@@ -6,24 +7,30 @@ export function Hero() {
       <div className="flex flex-col items-center text-center gap-4 max-w-xl">
         <div className="flex items-center gap-2 text-secondary px-2 py-1.5 border border-primary-border rounded-2xl bg-badge text-[0.65rem] font-black">
           <Stars size={15} />
-          <span>Explorando o Universo da Programável</span>
+          <span>{heroData.badgeLabel}</span>
         </div>
 
-        <h1 className="text-gradient text-6xl font-bold">Alisson Oliveira</h1>
-        <h2 className="text-text-secondary text-2xl font-light">
-          Desenvolvedor FullStack
+        <h1 className="text-gradient text-4xl md:text-6xl font-bold">
+          {heroData.fullName}
+        </h1>
+        <h2 className="text-text-secondary text-xl md:text-2xl font-light">
+          {heroData.position}
         </h2>
 
-        <p className="text-sm text-secondary">
-          Especialista em resolver problemas complexos através de código limpo e
-          arquitetura escalável. Foco em backend, análise técnica e engenharia
-          de software.
+        <p className="text-xs md:text-sm text-secondary">
+          {heroData.description}
         </p>
         <div className="flex gap-3 justify-center mt-4 text-sm">
-          <a href="#projects" className="bg-primary p-2 px-5 rounded-sm">
+          <a
+            href="#projects"
+            className="bg-primary primary p-2 px-4 md:px-5 rounded-sm"
+          >
             Ver Projetos
           </a>
-          <a href="" className="border border-primary p-2 px-5 rounded-sm">
+          <a
+            href="#contact"
+            className="border border-primary p-2 px-4 md:px-5 rounded-sm"
+          >
             Contato
           </a>
         </div>

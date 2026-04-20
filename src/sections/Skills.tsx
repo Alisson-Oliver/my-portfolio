@@ -1,6 +1,7 @@
 import { Star } from "lucide-react";
-import { skills } from "../data/skills";
+import { skills } from "../data/skills/skillsList";
 import { SkillCard } from "../components/SkillCard";
+import { skillsData } from "../data/skills/skills";
 
 export function Skills() {
   return (
@@ -8,16 +9,16 @@ export function Skills() {
       <div className="flex gap-2 items-center flex-col justify-center ">
         <div className="flex items-center gap-2 text-secondary px-2 py-1.5 border border-primary-border rounded-2xl bg-badge text-[0.65rem] font-black">
           <Star size={15} />
-          <span>Arsenal Tecnológico</span>
+          <span>{skillsData.badgeLabel}</span>
         </div>
         <h2 className="font-bold text-3xl text-center mt-4">
-          Stack <span className="text-gradient">Tecnológico</span>
+          {skillsData.title.main}{" "}
+          <span className="text-gradient">{skillsData.title.gradient}</span>
         </h2>
-        <p className="text-secondary text-center">
-          Tecnologias e ferramentas que utilizo para construir soluções robustas
-          e escaláveis.
+        <p className="text-secondary text-center text-sm md:text-md">
+          {skillsData.description}
         </p>
-        <div className="grid grid-cols-4 gap-5 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mt-10 w-[90%]">
           {skills.map((skill) => (
             <SkillCard
               icon={skill.icon}

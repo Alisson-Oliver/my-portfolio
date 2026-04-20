@@ -7,7 +7,6 @@ import {
   Terminal,
   Wrench,
   GitBranch,
-  Workflow,
   Monitor,
   Cloud,
 } from "lucide-react";

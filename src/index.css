@@ -29,6 +29,12 @@
 }
 
 @layer base {
+  html {
+    font-size: 125%;
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply antialiased bg-background text-foreground;
     font-family: var(--font-inter);
@@ -41,10 +47,6 @@
   }
   * {
     @apply border-border outline-ring/50;
-  }
-  html {
-    @apply font-sans;
-    scroll-behavior: smooth;
   }
 }
 

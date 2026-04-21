@@ -11,8 +11,8 @@ interface ContactsData {
 export const contactsData: ContactsData = {
   badgeLabel: "Estabelecer contato",
   title: {
-    main: "Construindo soluções",
-    gradient: " robustas e escaláveis",
+    main: "Vamos",
+    gradient: " conversar",
   },
   description:
     "Aberto a oportunidades, colaborações e novos desafios. Vamos construir algo legal juntos!.",

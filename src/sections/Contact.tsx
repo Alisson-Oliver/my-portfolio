@@ -146,7 +146,7 @@ export function Contact() {
           variants={sentenceVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           {contactsData.quote.split("").map((char, index) => (
             <motion.span key={`${char}-${index}`} variants={letterVariants}>

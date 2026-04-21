@@ -52,7 +52,7 @@ export function Projects() {
           whileInView="visible"
           viewport={{
             once: true,
-            amount: 0.45,
+            amount: 0.05,
             margin: "0px 0px -12% 0px",
           }}
         >

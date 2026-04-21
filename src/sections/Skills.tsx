@@ -50,7 +50,7 @@ export function Skills() {
           variants={cardsContainerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.35, margin: "0px 0px -10% 0px" }}
+          viewport={{ once: true, amount: 0.2, margin: "0px 0px -10% 0px" }}
         >
           {skills.map((skill) => (
             <motion.div

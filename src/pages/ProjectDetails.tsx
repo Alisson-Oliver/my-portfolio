@@ -14,14 +14,27 @@ import { motion } from "framer-motion";
 import { LuGithub } from "react-icons/lu";
 import { GlassCard } from "../components/GlassCard";
 import { StarBackground } from "../components/StarBackground";
+import { useEffect, useState } from "react";
 
 export function ProjectDetails() {
   const { id } = useParams();
   const projectData = projects.find((project) => project.id === id);
+  const [isMd, setIsMd] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(min-width: 768px)");
+
+    const handleResize = () => setIsMd(media.matches);
+
+    handleResize();
+    media.addEventListener("change", handleResize);
+
+    return () => media.removeEventListener("change", handleResize);
+  }, []);
 
   return (
     <div className="min-h-screen pt-32 px-6 pb-20">
-      <StarBackground opacity={0.5} intensity={1.5} />
+      {isMd && <StarBackground opacity={0.15} intensity={1.5} />}
       <div className="max-w-4xl mx-auto">
         <div className="mb-10">
           <motion.div whileHover={{ x: -5 }}>

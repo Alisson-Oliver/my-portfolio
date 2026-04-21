@@ -1,5 +1,4 @@
 import { ProjectCard } from "../components/ProjectCard";
-import { StarBackground } from "../components/StarBackground";
 import { projectsData } from "../data/projects/projects";
 import { projects } from "../data/projects/projectsList";
 
@@ -9,12 +8,6 @@ export function Projects() {
       className="relative isolate overflow-hidden min-h-screen flex items-center py-16"
       id="projects"
     >
-      <StarBackground
-        intensity={0.7}
-        showCloud={false}
-        showSparkles={false}
-        showStars={true}
-      />
       <div className="relative z-10 max-w-6xl mx-auto w-full flex flex-col items-center gap-4 px-4">
         <h2 className="font-bold text-3xl text-center">
           {projectsData.title.main}

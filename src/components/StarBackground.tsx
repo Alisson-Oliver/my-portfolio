@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { Cloud, Sparkles, Stars } from "@react-three/drei";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 
 interface StarBackgroundProps {
   intensity?: number;
@@ -9,6 +9,7 @@ interface StarBackgroundProps {
   showCloud?: boolean;
   zIndex?: number;
   opacity?: number;
+  onReady?: () => void;
 }
 
 export function StarBackground({
@@ -18,13 +19,45 @@ export function StarBackground({
   showCloud = true,
   zIndex = -1,
   opacity = 1,
+  onReady,
 }: StarBackgroundProps) {
+  const [canvasReady, setCanvasReady] = useState(false);
+
+  const handleCanvasReady = () => {
+    if (canvasReady) return;
+    setCanvasReady(true);
+    onReady?.();
+  };
+
   return (
     <div
       className="absolute inset-0 pointer-events-none"
-      style={{ zIndex, opacity }}
+      style={{
+        zIndex,
+        opacity,
+        background:
+          "radial-gradient(circle at 50% 20%, rgba(168, 85, 247, 0.22), transparent 50%), radial-gradient(circle at 20% 80%, rgba(192, 132, 252, 0.14), transparent 45%), #050208",
+      }}
     >
-      <Canvas camera={{ position: [0, 0, 1] }}>
+      <div
+        className="absolute inset-0"
+        style={{
+          opacity: canvasReady ? 0 : 1,
+          transition: "opacity 350ms ease",
+          backgroundImage:
+            "radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,.9), transparent), radial-gradient(1px 1px at 75% 25%, rgba(255,255,255,.8), transparent), radial-gradient(1px 1px at 45% 70%, rgba(255,255,255,.7), transparent), radial-gradient(1px 1px at 88% 65%, rgba(255,255,255,.75), transparent), radial-gradient(1px 1px at 12% 82%, rgba(255,255,255,.6), transparent)",
+        }}
+      />
+
+      <Canvas
+        camera={{ position: [0, 0, 1] }}
+        className={
+          canvasReady
+            ? "opacity-100 transition-opacity duration-500"
+            : "opacity-0 transition-opacity duration-500"
+        }
+        onCreated={handleCanvasReady}
+      >
         <Suspense fallback={null}>
           {showStars && (
             <Stars

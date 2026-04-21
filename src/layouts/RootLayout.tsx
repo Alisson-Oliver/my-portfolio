@@ -1,4 +1,5 @@
-import { Outlet, ScrollRestoration } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { AppScrollRestoration } from "../components/AppScrollRestoration";
 import { Header } from "../components/Header";
 
 export function RootLayout() {
@@ -8,7 +9,7 @@ export function RootLayout() {
       <main className="relative z-10">
         <Outlet />
       </main>
-      <ScrollRestoration />
+      <AppScrollRestoration />
     </div>
   );
 }

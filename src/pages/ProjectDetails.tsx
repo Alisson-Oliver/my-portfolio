@@ -34,7 +34,7 @@ export function ProjectDetails() {
 
   return (
     <div className="min-h-screen pt-32 px-6 pb-20">
-      {isMd && <StarBackground opacity={0.15} intensity={1.5} />}
+      {isMd && <StarBackground opacity={0.5} intensity={1.5} />}
       <div className="max-w-4xl mx-auto">
         <div className="mb-10">
           <motion.div whileHover={{ x: -5 }}>

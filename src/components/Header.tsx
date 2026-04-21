@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { cn } from "../lib/cn";
 import { motion, AnimatePresence } from "framer-motion";
 import { heroData } from "../data/hero/hero";
+import { Link } from "react-router-dom";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -45,23 +46,23 @@ export function Header() {
         )}
       >
         <motion.div whileHover={{ scale: 1.1 }}>
-          <a href="#" className="flex gap-2 items-center">
+          <Link to="/" className="flex gap-2 items-center">
             <RocketIcon className="text-secondary" size={20} />
             <h1 className="text-md text-gradient font-bold">
               {heroData.alias}
             </h1>
-          </a>
+          </Link>
         </motion.div>
 
         <nav className="hidden md:flex gap-6 text-xs text-text-secondary">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.label}
-              href={link.href}
+              to={link.href}
               className="hover:text-primary transition"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -91,14 +92,14 @@ export function Header() {
               className="absolute mt-3 top-16 left-4 right-4 glass border border-white/10 p-6 rounded-2xl flex flex-col gap-4 md:hidden"
             >
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.label}
-                  href={link.href}
+                  to={link.href}
                   onClick={() => setIsMenuOpen(false)}
                   className="text-lg font-medium text-text-secondary hover:text-primary transition-colors"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </motion.div>
           </>

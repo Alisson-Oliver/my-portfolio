@@ -2,6 +2,33 @@ import { SquareCode } from "lucide-react";
 import { AboutCard } from "../components/AboutCard";
 import { aboutSkills } from "../data/about/softSkills";
 import { aboutData } from "../data/about/about";
+import { motion, type Variants } from "framer-motion";
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 30,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+};
+
 export function About() {
   return (
     <section
@@ -29,16 +56,31 @@ export function About() {
             <p className="text-primary text-sm italic">{aboutData.resume}</p>
           </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{
+            once: true,
+            amount: 0.2,
+          }}
+        >
           {aboutSkills.map((aboutSkill, index) => (
-            <AboutCard
+            <motion.div
               key={index}
-              icon={aboutSkill.icon}
-              description={aboutSkill.description}
-              title={aboutSkill.title}
-            />
+              variants={cardVariants}
+              whileHover={{ scale: 1.05 }}
+            >
+              <AboutCard
+                key={index}
+                icon={aboutSkill.icon}
+                description={aboutSkill.description}
+                title={aboutSkill.title}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

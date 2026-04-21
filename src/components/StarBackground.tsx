@@ -57,6 +57,7 @@ export function StarBackground({
             : "opacity-0 transition-opacity duration-500"
         }
         onCreated={handleCanvasReady}
+        gl={{ powerPreference: "high-performance", antialias: false }}
       >
         <Suspense fallback={null}>
           {showStars && (

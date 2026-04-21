@@ -25,7 +25,7 @@ export function ProjectDetails() {
       <div className="max-w-4xl mx-auto">
         <div className="mb-10">
           <motion.div whileHover={{ x: -5 }}>
-            <Link to={"/"} className="flex items-center gap-1 mb-5">
+            <Link to={"/#projects"} className="flex items-center gap-1 mb-5">
               <ArrowLeft size={15} className="text-secondary" />
               <span className="text-sm text-secondary">
                 Voltar aos Projetos
@@ -36,7 +36,7 @@ export function ProjectDetails() {
           <span className="text-sm text-primary font-mono uppercase">
             Projeto
           </span>
-          <h1 className="text-5xl text-gradient font-extrabold mb-4">
+          <h1 className="text-5xl leading-[1.16] pb-1 text-gradient font-extrabold mb-5">
             {projectData?.title}
           </h1>
           <p className="text-text-secondary leading-relaxed w-auto">

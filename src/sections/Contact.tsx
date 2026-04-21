@@ -9,7 +9,33 @@ const containerVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.18,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const introContainerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.14,
+    },
+  },
+};
+
+const introItemVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 24,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.45,
+      ease: "easeOut",
     },
   },
 };
@@ -54,19 +80,39 @@ export function Contact() {
       id="contact"
     >
       <div className="relative z-10 flex flex-col items-center justify-center max-w-4xl w-full">
-        <div className="flex items-center gap-2 text-secondary px-2 py-1.5 border border-primary-border rounded-2xl bg-badge text-[0.65rem] font-black uppercase tracking-wider">
-          <SatelliteDish size={15} />
-          <span>{contactsData.badgeLabel}</span>
-        </div>
+        <motion.div
+          className="flex flex-col items-center"
+          variants={introContainerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.55, margin: "0px 0px -10% 0px" }}
+        >
+          <motion.div
+            variants={introItemVariants}
+            className="flex items-center gap-2 text-secondary px-2 py-1.5 border border-primary-border rounded-2xl bg-badge text-[0.65rem] font-black uppercase tracking-wider"
+          >
+            <SatelliteDish size={15} />
+            <span>{contactsData.badgeLabel}</span>
+          </motion.div>
 
-        <h2 className="font-bold text-3xl md:text-4xl text-center mt-4">
-          {contactsData.title.main}
-          <span className="text-gradient">{contactsData.title.gradient}</span>
-        </h2>
+          <motion.h2
+            variants={introItemVariants}
+            className="font-bold text-3xl md:text-4xl text-center mt-4"
+          >
+            {contactsData.title.main}
+            <span className="text-gradient">
+              {" "}
+              {contactsData.title.gradient}
+            </span>
+          </motion.h2>
 
-        <p className="text-secondary text-center text-sm mt-2 px-4 max-w-lg">
-          {contactsData.description}
-        </p>
+          <motion.p
+            variants={introItemVariants}
+            className="text-secondary text-center text-sm mt-2 px-4 max-w-lg"
+          >
+            {contactsData.description}
+          </motion.p>
+        </motion.div>
 
         <motion.div
           className="flex flex-wrap items-center justify-center gap-5 mt-10"
@@ -75,7 +121,8 @@ export function Contact() {
           whileInView="visible"
           viewport={{
             once: true,
-            amount: 0.2,
+            amount: 0.45,
+            margin: "0px 0px -12% 0px",
           }}
         >
           {contacts.map((contact) => (

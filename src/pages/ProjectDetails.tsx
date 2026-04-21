@@ -52,7 +52,7 @@ export function ProjectDetails() {
               <LuGithub size={17} />
               Ver Código
             </a>
-            {!projectData?.demoLink && (
+            {projectData?.demoLink && (
               <a
                 href={projectData?.demoLink}
                 target="_blank"

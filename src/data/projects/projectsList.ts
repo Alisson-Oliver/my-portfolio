@@ -27,21 +27,26 @@ export const projects: Project[] = [
     ],
     repoLink: "https://github.com/Alisson-Oliver/ANMAR25_DSUP_TASKLY",
     problemSolved:
-      "Sistemas tradicionais de processamento de dados não conseguem lidar de forma eficiente com grandes volumes de eventos em tempo real. Isso gera alta latência, dificuldade de escalabilidade e limita a capacidade de análise rápida dos dados. Além disso, muitas soluções não integram bem processamento em tempo real (streaming) com processamento em lote (batch), dificultando a obtenção de insights consistentes e atualizados.",
+      "Muitas pessoas acabam organizando tarefas de forma desestruturada, sem um lugar central para acompanhar status, prioridade e anotações. Para resolver isso, foi criada uma API REST que permite gerenciar tarefas e associar múltiplas notas, com validações e organização em camadas, facilitando o controle do dia a dia.",
+
     features: [
-      "Rate limiting adaptativo por cliente e endpoint",
-      "Circuit breaker pattern",
-      "Cache distribuído com Redis",
-      "API versioning",
-      "Autenticação JWT com refresh tokens",
-      "Load balancing round-robin",
-      "Request/Response transformation",
-      "Request logging e tracing",
+      "Criar, listar, atualizar e deletar tarefas",
+      "Filtrar tarefas por status e prioridade",
+      "Categorizar tarefas e pesquisar por título",
+      "Criar múltiplas notas associadas a cada tarefa",
+      "Paginação configurável na listagem de tarefas",
+      "Validações de entrada com Zod em camada de middleware",
+      "Relacionamento entre tarefas e notas com deleção em cascata",
+      "Tratamento centralizado de erros",
+      "API documentada com endpoints estruturados",
+      "Containerização com Docker Compose para PostgreSQL",
     ],
+
     longDescription:
-      "Um gateway de API enterprise-grade projetado para gerenciar, proteger e monitorar tráfego de APIs em escala. Implementa padrões de microserviços com alta disponibilidade e tolerância a falhas",
+      "O Taskly é uma API REST para gerenciamento de tarefas e anotações. É possível criar tarefas com título, descrição, status e prioridade, além de associar várias notas a cada uma. A aplicação foi organizada em camadas (controller, service e repository), usa PostgreSQL para persistência e Zod para validação dos dados.",
+
     difficultChallenge:
-      "Sistemas tradicionais de processamento de dados não conseguem lidar de forma eficiente com grandes volumes de eventos em tempo real. Isso gera alta latência, dificuldade de escalabilidade e limita a capacidade de análise rápida dos dados. Além disso, muitas soluções não integram bem processamento em tempo real (streaming) com processamento em lote (batch), dificultando a obtenção de insights consistentes e atualizados.",
+      "Um dos principais desafios foi lidar com o relacionamento entre tarefas e notas, garantindo que ao remover uma tarefa todas as suas notas fossem tratadas corretamente. Além disso, organizar as validações com Zod de forma consistente entre as camadas exigiu cuidado para evitar duplicação e manter os erros claros.",
   },
   {
     id: "compass-events",
@@ -60,21 +65,27 @@ export const projects: Project[] = [
     ],
     repoLink: "https://github.com/Alisson-Oliver/ANMAR25_D03_COMPASSEVENT",
     problemSolved:
-      "Sistemas tradicionais de processamento de dados não conseguem lidar de forma eficiente com grandes volumes de eventos em tempo real. Isso gera alta latência, dificuldade de escalabilidade e limita a capacidade de análise rápida dos dados. Além disso, muitas soluções não integram bem processamento em tempo real (streaming) com processamento em lote (batch), dificultando a obtenção de insights consistentes e atualizados.",
+      "Pequenos organizadores de eventos precisavam usar ferramentas separadas para cadastro de usuários, criação de eventos e gerenciamento de inscrições, além de depender de confirmações manuais por e-mail. Para resolver isso, foi desenvolvida uma API REST com NestJS que centraliza esse fluxo, com autenticação JWT, verificação de e-mail, controle de acesso por papéis e integração com serviços da AWS para envio de e-mails e armazenamento de imagens.",
     features: [
-      "Rate limiting adaptativo por cliente e endpoint",
-      "Circuit breaker pattern",
-      "Cache distribuído com Redis",
-      "API versioning",
-      "Autenticação JWT com refresh tokens",
-      "Load balancing round-robin",
-      "Request/Response transformation",
-      "Request logging e tracing",
+      "Cadastro de usuários com validação e hash de senha",
+      "Login com geração de token JWT para rotas protegidas",
+      "Verificação de e-mail por link com token e ativação de conta",
+      "Autorização por papéis com guards e decorators (RBAC)",
+      "Upload de imagem de perfil e imagem de evento via AWS S3",
+      "CRUD de eventos com regras de ownership e soft delete",
+      "Listagem paginada com filtros por nome, data e status",
+      "Inscrição de usuários em eventos com validação",
+      "Cancelamento de inscrição com soft delete e validação",
+      "Envio de e-mails transacionais via AWS SES",
+      "Envio de convite de calendário (.ics) ao confirmar inscrição",
+      "Seed de dados iniciais com criação de usuário administrador",
     ],
+
     longDescription:
-      "Um gateway de API enterprise-grade projetado para gerenciar, proteger e monitorar tráfego de APIs em escala. Implementa padrões de microserviços com alta disponibilidade e tolerância a falhas",
+      "A Events API é uma aplicação construída com NestJS para gerenciar eventos do início ao fim. O sistema permite cadastro de usuários, criação de eventos, inscrição e envio de notificações por e-mail. Utiliza DynamoDB como banco de dados, S3 para armazenamento de imagens e SES para envio de e-mails, com a aplicação organizada em módulos para separar responsabilidades.",
+
     difficultChallenge:
-      "Sistemas tradicionais de processamento de dados não conseguem lidar de forma eficiente com grandes volumes de eventos em tempo real. Isso gera alta latência, dificuldade de escalabilidade e limita a capacidade de análise rápida dos dados. Além disso, muitas soluções não integram bem processamento em tempo real (streaming) com processamento em lote (batch), dificultando a obtenção de insights consistentes e atualizados.",
+      "O maior desafio foi organizar autenticação e autorização dentro da aplicação, garantindo que cada usuário só pudesse acessar o que realmente tem permissão. Também foi necessário integrar serviços da AWS para envio de e-mails e upload de imagens, mantendo o código desacoplado e fácil de manter.",
   },
   {
     id: "integra-mais",
@@ -93,8 +104,7 @@ export const projects: Project[] = [
     ],
     repoLink: "https://github.com/Alisson-Oliver/integra-mais",
     problemSolved:
-      "Pessoas em busca de qualificação profissional e inserção no mercado de trabalho não tinham, em um único lugar, acesso simples a cursos, validação de identidade, acompanhamento de inscrição e ponte com empresas. O projeto Integra + implementa uma plataforma web centralizada com autenticação, verificação de e-mail por código, gestão de perfil com upload de avatar em nuvem, catálogo de cursos com inscrição, área administrativa para criação de novos cursos e base de relacionamento entre usuários e cursos via Sequelize, formando a estrutura para um banco de talentos.",
-
+      "Pessoas que buscavam cursos online não tinham uma forma simples de se cadastrar, acompanhar inscrições e gerenciar seus dados em um único sistema. Para resolver isso, foi criada uma plataforma web que reúne cadastro, verificação de e-mail, perfil do usuário e inscrição em cursos, tudo integrado em um só lugar.",
     features: [
       "Cadastro, login e logout de usuários",
       "Verificação de e-mail com código de 6 dígitos e expiração",
@@ -109,12 +119,11 @@ export const projects: Project[] = [
       "Validações no front-end para CPF, telefone, senha e data",
       "Páginas institucionais e fluxo de navegação completo em EJS",
     ],
-
     longDescription:
-      "O Integra + é uma plataforma web de capacitação profissional que une cursos gratuitos e empregabilidade em um único ambiente. Com Node.js, Express, PostgreSQL e EJS, o sistema permite cadastro, verificação de e-mail, atualização de perfil e inscrição em cursos. Também possui área administrativa para gestão de conteúdo e estrutura inicial de banco de talentos para aproximar alunos e empresas parceiras.",
+      "O Integra Mais é uma plataforma web onde usuários podem se cadastrar, validar e-mail e se inscrever em cursos. Também conta com edição de perfil e upload de imagem. O sistema foi desenvolvido com Node.js, Express e EJS, utilizando PostgreSQL para persistência e Sequelize para gerenciar os dados.",
 
     difficultChallenge:
-      "Um dos maiores desafios técnicos desse projeto foi gerenciar um fluxo de autenticação e verificação entre backend, sessão e interface: gerar e expirar código de verificação, controlar tentativas e reenvio, manter segurança no login com JWT, e ao mesmo tempo garantir boa experiência do usuário no front-end.",
+      "Um dos desafios foi implementar o fluxo de verificação por código, lidando com expiração, reenvio e validação sem comprometer a experiência do usuário. Também exigiu atenção integrar autenticação com JWT e manter consistência entre backend e interface.",
   },
   {
     id: "compass-reservation",
@@ -130,22 +139,26 @@ export const projects: Project[] = [
       "Swagger",
       "JWT",
     ],
-    repoLink: "#",
+    repoLink:
+      "https://github.com/Alisson-Oliver/ANMAR25_D02_COMPASSRESERVATION",
     problemSolved:
-      "Sistemas tradicionais de processamento de dados não conseguem lidar de forma eficiente com grandes volumes de eventos em tempo real. Isso gera alta latência, dificuldade de escalabilidade e limita a capacidade de análise rápida dos dados. Além disso, muitas soluções não integram bem processamento em tempo real (streaming) com processamento em lote (batch), dificultando a obtenção de insights consistentes e atualizados.",
+      "A organização de reservas de espaços e recursos muitas vezes era feita de forma manual ou desorganizada, o que dificultava o controle de horários e gerava conflitos de agendamento. Para resolver isso, foi desenvolvida uma API que permite gerenciar reservas com autenticação, controle de acesso e validação automática de conflitos de datas.",
+
     features: [
-      "Rate limiting adaptativo por cliente e endpoint",
-      "Circuit breaker pattern",
-      "Cache distribuído com Redis",
-      "API versioning",
-      "Autenticação JWT com refresh tokens",
-      "Load balancing round-robin",
-      "Request/Response transformation",
-      "Request logging e tracing",
+      "Autenticação com registro e login de usuários",
+      "Autenticação com JWT e proteção de rotas",
+      "Controle de acesso baseado em roles",
+      "Gestão de clientes com validação de dados",
+      "Catálogo de espaços com capacidade e status",
+      "Gestão de recursos com controle de quantidade",
+      "Sistema completo de reservas",
+      "Validação de conflito de datas",
+      "Listagens com filtros e paginação",
+      "Documentação com Swagger",
     ],
     longDescription:
-      "Um gateway de API enterprise-grade projetado para gerenciar, proteger e monitorar tráfego de APIs em escala. Implementa padrões de microserviços com alta disponibilidade e tolerância a falhas",
+      "A Reservation API é uma aplicação feita com NestJS para gerenciar reservas de espaços e recursos. O sistema permite cadastro de usuários, controle de acesso, criação de reservas e validação de conflitos de horário. Utiliza Prisma como ORM e SQLite como banco de dados, com organização em módulos para manter o código estruturado.",
     difficultChallenge:
-      "Sistemas tradicionais de processamento de dados não conseguem lidar de forma eficiente com grandes volumes de eventos em tempo real. Isso gera alta latência, dificuldade de escalabilidade e limita a capacidade de análise rápida dos dados. Além disso, muitas soluções não integram bem processamento em tempo real (streaming) com processamento em lote (batch), dificultando a obtenção de insights consistentes e atualizados.",
+      "O principal desafio foi garantir que não houvesse conflitos de horário nas reservas, validando corretamente as datas antes de salvar no banco. Além disso, implementar controle de acesso para que cada usuário veja apenas seus dados exigiu cuidado na estruturação das regras.",
   },
 ];

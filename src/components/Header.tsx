@@ -1,4 +1,4 @@
-import { RocketIcon, Menu, X } from "lucide-react";
+import { Code2, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "../lib/cn";
 import { motion, AnimatePresence } from "framer-motion";
@@ -46,15 +46,15 @@ export function Header() {
         )}
       >
         <motion.div whileHover={{ scale: 1.1 }}>
-          <Link to="/" className="flex gap-2 items-center">
-            <RocketIcon className="text-secondary" size={20} />
+          <Link to="/" className="flex gap-2 items-center font-mono">
+            <Code2 className="text-accent-cyan" size={20} />
             <h1 className="text-md text-gradient font-bold">
               {heroData.alias}
             </h1>
           </Link>
         </motion.div>
 
-        <nav className="hidden md:flex gap-6 text-xs text-text-secondary">
+        <nav className="hidden md:flex gap-6 text-xs font-mono text-text-secondary">
           {navLinks.map((link) => (
             <Link
               key={link.label}
@@ -96,7 +96,7 @@ export function Header() {
                   key={link.label}
                   to={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-lg font-medium text-text-secondary hover:text-primary transition-colors"
+                  className="text-lg font-mono font-medium text-text-secondary hover:text-primary transition-colors"
                 >
                   {link.label}
                 </Link>

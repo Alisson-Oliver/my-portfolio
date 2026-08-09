@@ -1,4 +1,4 @@
-import { Stars } from "lucide-react";
+import { Terminal } from "lucide-react";
 import { heroData } from "../data/hero/hero";
 import { motion, type Variants } from "framer-motion";
 
@@ -35,10 +35,13 @@ export function Hero() {
       >
         <motion.div
           variants={itemVariants}
-          className="flex items-center gap-2 text-secondary px-2 py-1.5 border border-primary-border rounded-2xl bg-badge text-[0.65rem] font-black"
+          className="flex items-center gap-2 text-accent-cyan px-2 py-1.5 border border-primary-border rounded-2xl bg-badge text-[0.65rem] font-mono font-black"
         >
-          <Stars size={15} />
-          <span>{heroData.badgeLabel}</span>
+          <Terminal size={15} />
+          <span>
+            <span className="text-text-muted">// </span>
+            {heroData.badgeLabel}
+          </span>
         </motion.div>
 
         <motion.h1
@@ -50,9 +53,10 @@ export function Hero() {
 
         <motion.h2
           variants={itemVariants}
-          className="text-text-secondary text-xl md:text-2xl font-light"
+          className="text-text-secondary text-xl md:text-2xl font-light font-mono"
         >
           {heroData.position}
+          <span className="inline-block w-2 h-[1.1em] -mb-1 ml-1 bg-accent-green animate-blink" />
         </motion.h2>
 
         <motion.p
@@ -68,7 +72,7 @@ export function Hero() {
         >
           <a
             href="#projects"
-            className="bg-primary primary p-2 px-4 md:px-5 rounded-sm"
+            className="bg-primary text-primary-foreground p-2 px-4 md:px-5 rounded-sm"
           >
             Ver Projetos
           </a>

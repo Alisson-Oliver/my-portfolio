@@ -17,10 +17,10 @@ export function ContactCard({ icon: Icon, link, label }: ContactCarProps) {
         whileHover={{ rotate: 5, scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
-        <div className="flex items-center justify-center bg-space-purple-deep border-2 h-18 w-18 rounded-2xl cursor-pointer">
-          <Icon size={25} />
+        <div className="flex items-center justify-center bg-accent-green/10 border-2 h-18 w-18 rounded-2xl cursor-pointer">
+          <Icon size={25} className="text-accent-green" />
         </div>
-        <span className="text-xs font-semibold text-secondary opacity-0 group-hover:opacity-100 transition-all delay-100 block text-center mt-1">
+        <span className="text-xs font-mono font-semibold text-secondary opacity-0 group-hover:opacity-100 transition-all delay-100 block text-center mt-1">
           {label}
         </span>
       </motion.a>

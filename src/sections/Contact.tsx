@@ -1,4 +1,4 @@
-import { SatelliteDish } from "lucide-react";
+import { Radio } from "lucide-react";
 import { ContactCard } from "../components/ContactCard";
 import { contacts } from "../data/contacts/contactsList";
 import { motion, type Variants } from "framer-motion";
@@ -89,10 +89,13 @@ export function Contact() {
         >
           <motion.div
             variants={introItemVariants}
-            className="flex items-center gap-2 text-secondary px-2 py-1.5 border border-primary-border rounded-2xl bg-badge text-[0.65rem] font-black uppercase tracking-wider"
+            className="flex items-center gap-2 text-accent-cyan px-2 py-1.5 border border-primary-border rounded-2xl bg-badge text-[0.65rem] font-mono font-black uppercase tracking-wider"
           >
-            <SatelliteDish size={15} />
-            <span>{contactsData.badgeLabel}</span>
+            <Radio size={15} />
+            <span>
+              <span className="text-text-muted">// </span>
+              {contactsData.badgeLabel}
+            </span>
           </motion.div>
 
           <motion.h2

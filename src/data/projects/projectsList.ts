@@ -6,6 +6,7 @@ interface Project {
   techStack: string[];
   repoLink: string;
   demoLink?: string;
+  image?: string;
   problemSolved: string;
   features: string[];
   difficultChallenge: string;

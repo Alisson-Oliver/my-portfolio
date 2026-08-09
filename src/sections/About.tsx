@@ -32,14 +32,17 @@ const cardVariants: Variants = {
 export function About() {
   return (
     <section
-      className="bg-space-purple min-h-screen flex items-center py-20 md:py-0"
+      className="bg-surface min-h-screen flex items-center py-20 md:py-0"
       id="about"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 mx-6 md:mx-20 gap-10 lg:gap-20">
         <div className="flex flex-col gap-5 justify-center">
-          <div className="flex items-center gap-2 text-primary">
+          <div className="flex items-center gap-2 text-accent-cyan">
             <SquareCode size={22} />
-            <span className="text-sm uppercase font-medium">Sobre mim</span>
+            <span className="text-sm uppercase font-mono font-medium">
+              <span className="text-text-muted">// </span>
+              Sobre mim
+            </span>
           </div>
 
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
@@ -53,7 +56,9 @@ export function About() {
             <p className="text-text-secondary text-sm md:text-md">
               {aboutData.description}
             </p>
-            <p className="text-primary text-sm italic">{aboutData.resume}</p>
+            <p className="text-accent-green text-sm italic">
+              {aboutData.resume}
+            </p>
           </div>
         </div>
         <motion.div

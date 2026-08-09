@@ -6,14 +6,12 @@ interface GlassCardProps {
   className?: string;
   children: React.ReactNode;
   hoverEffect?: boolean;
-  glowColor?: `blue` | `purple` | `none`;
 }
 
 export function GlassCard({
   className,
   children,
   hoverEffect = true,
-  glowColor = "none",
 }: GlassCardProps) {
   return (
     <motion.div
@@ -31,18 +29,6 @@ export function GlassCard({
       }}
     >
       {children}
-      {hoverEffect && glowColor !== "none" && (
-        <motion.div
-          className={cn(
-            "absolute inset-0 rounded-2xl opacity-0 pointer-events-none",
-            glowColor === "blue" && "neon-glow-blue",
-            glowColor === "purple" && "neon-glow-purple",
-          )}
-          initial={{ opacity: 0 }}
-          whileHover={{ opacity: 0.3 }}
-          transition={{ duration: 0.3 }}
-        />
-      )}
     </motion.div>
   );
 }

@@ -29,12 +29,11 @@ export function ProjectCard({
 
   return (
     <GlassCard
-      glowColor="purple"
       hoverEffect={false}
       className="flex flex-col h-full hover:text-primary py-8"
     >
       <div>
-        <h3 className="text-2xl text-main font-semibold">{title}</h3>
+        <h3 className="text-2xl text-text-main font-semibold">{title}</h3>
 
         <p className="text-text-secondary mt-2 text-sm min-h-15">
           {description}
@@ -47,7 +46,7 @@ export function ProjectCard({
 
           {remainingCount > 0 && (
             <Badge
-              className={cn("bg-secondary text-badge")}
+              className={cn("bg-secondary text-secondary-foreground")}
               title={`+${remainingCount}`}
             />
           )}
@@ -83,7 +82,7 @@ export function ProjectCard({
         >
           <Link
             to={`/projeto/${id}`}
-            className="flex items-center gap-2 text-secondary hover:text-primary transition-colors"
+            className="flex items-center gap-2 text-accent-cyan hover:opacity-80 transition-opacity"
           >
             <span className="text-sm">Detalhes</span>
             <ArrowRight size={17} />

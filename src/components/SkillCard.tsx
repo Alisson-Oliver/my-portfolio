@@ -40,10 +40,10 @@ interface SkillCardProps {
 
 export function SkillCard({ icon: Icon, title, techStack }: SkillCardProps) {
   return (
-    <GlassCard glowColor="purple" className="h-full" hoverEffect={true}>
+    <GlassCard className="h-full" hoverEffect={true}>
       <div className="flex items-center gap-2.5">
-        <div className="bg-space-purple-deep rounded-md p-2.5">
-          <Icon size={16} className="text-secondary" />
+        <div className="bg-surface-strong rounded-md p-2.5">
+          <Icon size={16} className="text-primary" />
         </div>
         <h4 className="font-semibold">{title}</h4>
       </div>
@@ -64,7 +64,7 @@ export function SkillCard({ icon: Icon, title, techStack }: SkillCardProps) {
               variants={stackItemVariants}
               className="flex items-center gap-3 text-sm"
             >
-              <TechIcon size={15} className="text-primary" />
+              <TechIcon size={15} className="text-accent-green" />
               <span className="text-secondary">{tech.name}</span>
             </motion.li>
           );

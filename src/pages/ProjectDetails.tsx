@@ -13,28 +13,17 @@ import {
 import { motion } from "framer-motion";
 import { LuGithub } from "react-icons/lu";
 import { GlassCard } from "../components/GlassCard";
-import { StarBackground } from "../components/StarBackground";
-import { useEffect, useState } from "react";
+import { TechBackground } from "../components/TechBackground";
+import { useIsMobile } from "../hooks/use-mobile";
 
 export function ProjectDetails() {
   const { id } = useParams();
   const projectData = projects.find((project) => project.id === id);
-  const [isMd, setIsMd] = useState(false);
-
-  useEffect(() => {
-    const media = window.matchMedia("(min-width: 768px)");
-
-    const handleResize = () => setIsMd(media.matches);
-
-    handleResize();
-    media.addEventListener("change", handleResize);
-
-    return () => media.removeEventListener("change", handleResize);
-  }, []);
+  const isMobile = useIsMobile();
 
   return (
     <div className="min-h-screen pt-32 px-6 pb-20">
-      {isMd && <StarBackground opacity={0.5} intensity={1.5} />}
+      {!isMobile && <TechBackground opacity={0.5} intensity={1.5} />}
       <div className="max-w-4xl mx-auto">
         <div className="mb-10">
           <motion.div whileHover={{ x: -5 }}>
@@ -60,7 +49,7 @@ export function ProjectDetails() {
             <a
               href={projectData?.repoLink}
               target="_blank"
-              className="bg-primary button-gradient p-2 px-3 md:px-5 rounded-sm flex items-center gap-2 text-semis"
+              className="bg-primary button-gradient p-2 px-3 md:px-5 rounded-sm flex items-center gap-2 text-primary-foreground"
             >
               <LuGithub size={17} />
               Ver Código
@@ -76,6 +65,14 @@ export function ProjectDetails() {
               </a>
             )}
           </div>
+
+          {projectData?.image && (
+            <img
+              src={projectData.image}
+              alt={projectData.title}
+              className="w-full rounded-md border border-border mb-6"
+            />
+          )}
         </div>
         <div>
           <div className="flex items-center mb-4 gap-2">
@@ -113,7 +110,7 @@ export function ProjectDetails() {
                 className="h-full rounded-md p-3 w-auto"
               >
                 <div className="flex items-center gap-2">
-                  <Check size={17} className="text-green-300 shrink-0" />
+                  <Check size={17} className="text-accent-green shrink-0" />
                   <span className="text-xs md:text-sm text-text-secondary">
                     {feature}
                   </span>

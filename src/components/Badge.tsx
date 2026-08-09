@@ -11,7 +11,7 @@ export function Badge({ className, title }: BadgeProps) {
       className={cn(
         "inline-flex items-center justify-center",
         "px-2",
-        "text-secondary border-primary-border border rounded-2xl bg-badge text-[0.65rem] font-black",
+        "text-secondary border-primary-border border rounded-2xl bg-badge text-[0.65rem] font-mono font-black",
         className,
       )}
     >

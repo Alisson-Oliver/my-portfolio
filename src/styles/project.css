@@ -86,7 +86,7 @@
   margin: 28px 0 0;
   font: 400 18px / 1.6 var(--s);
   max-width: 34em;
-  color: var(--blue-mut);
+  color: var(--band-mut);
 }
 
 .dgw {
@@ -117,7 +117,7 @@
 }
 
 .pk {
-  fill: var(--fg);
+  fill: var(--signal);
   opacity: 0;
 }
 
@@ -130,7 +130,7 @@
 }
 
 .nd rect {
-  fill: var(--blue);
+  fill: var(--band);
   stroke: var(--fg);
   stroke-width: 1.5;
 }

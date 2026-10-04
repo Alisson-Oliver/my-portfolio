@@ -49,14 +49,14 @@ header.top nav a:hover {
 }
 
 .hero {
-  padding-block: clamp(48px, 10vw, 140px) clamp(56px, 9vw, 120px);
+  padding-block: clamp(20px, 4vw, 56px) clamp(48px, 7vw, 96px);
 }
 
 .hero .row {
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 3fr);
   gap: 48px;
-  margin-top: clamp(36px, 6vw, 80px);
+  margin-top: clamp(24px, 3.5vw, 48px);
   align-items: start;
 }
 
@@ -141,7 +141,7 @@ ul.idx {
 }
 
 .idx .r:focus-visible {
-  outline: 2px solid var(--blue-fg);
+  outline: 2px solid var(--band-fg);
   outline-offset: 2px;
 }
 
@@ -237,16 +237,6 @@ ul.idx {
   opacity: 0.75;
 }
 
-.pend {
-  font: 500 13px var(--d);
-  border: 1px solid currentColor;
-  border-radius: 999px;
-  padding: 2px 10px;
-  margin-left: 12px;
-  vertical-align: middle;
-  opacity: 0.85;
-}
-
 .path {
   padding-block: clamp(64px, 10vw, 140px);
 }
@@ -338,14 +328,6 @@ ul.idx {
   border-top: 1px solid var(--line);
 }
 
-.quote p {
-  margin: 0;
-  font: 400 clamp(28px, 4.4vw, 60px) / 1.18 var(--s);
-  letter-spacing: -0.015em;
-  max-width: 20em;
-  text-wrap: balance;
-}
-
 .stack {
   padding-block: clamp(56px, 8vw, 110px);
   border-top: 1px solid var(--line);
@@ -361,17 +343,19 @@ ul.idx {
   gap: 0 24px;
 }
 
+.srow:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
 .srow dt {
   font: 500 15px var(--d);
   color: var(--mut);
   padding: 18px 0;
-  border-top: 1px solid var(--line);
 }
 
 .srow dd {
   margin: 0;
   padding: 14px 0;
-  border-top: 1px solid var(--line);
   font: 400 clamp(20px, 2.2vw, 28px) / 1.4 var(--s);
 }
 
@@ -472,11 +456,9 @@ footer {
 
   .srow dt {
     padding-bottom: 0;
-    border-bottom: 0;
   }
 
   .srow dd {
-    border-top: 0;
     padding-top: 4px;
   }
 }

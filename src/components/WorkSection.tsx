@@ -5,7 +5,8 @@ import type { Project } from "../data/types";
 import { useLanguage } from "../context/language";
 import { useTransition } from "../context/transition";
 import { useMediaQuery } from "../hooks/useMediaQuery";
-import { RevealItem } from "./RevealItem";
+import { Reveal } from "./Reveal";
+import { Rise } from "./Rise";
 
 function ProjectSummary({ project }: { project: Project }) {
   const { tr } = useLanguage();
@@ -15,7 +16,6 @@ function ProjectSummary({ project }: { project: Project }) {
       <p className="kind">{tr(project.kind)}</p>
       <h3>
         {tr(project.name)}
-        {project.draft && <span className="pend">{tr(copy.draft)}</span>}
       </h3>
       <p>{tr(project.overview[0])}</p>
       <p className="st">
@@ -55,13 +55,13 @@ export function WorkSection() {
   };
 
   return (
-    <section id="trabalho" className="work blue">
+    <section id="trabalho" className="work band">
       <div className="wrap">
-        <h2>{tr(copy.selectedWork)}</h2>
+        <Rise>{tr(copy.selectedWork)}</Rise>
         <div className="grid">
           <ul className="idx">
             {projects.map((project, index) => (
-              <RevealItem key={project.id} delay={index * 0.06}>
+              <Reveal as="li" key={project.id} delay={index * 0.06}>
                 <button
                   type="button"
                   className="r"
@@ -76,7 +76,7 @@ export function WorkSection() {
                 <div className="inl" hidden={index !== active}>
                   <ProjectSummary project={project} />
                 </div>
-              </RevealItem>
+              </Reveal>
             ))}
           </ul>
           <aside className={`side ${swapping ? "sw" : ""}`} aria-live="polite">

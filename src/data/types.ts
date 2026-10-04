@@ -30,7 +30,6 @@ export type Project = {
   code: Localized;
   link?: string;
   site?: string;
-  draft?: boolean;
   tagline: Localized;
   overview: Localized[];
   diagram: DiagramSpec;

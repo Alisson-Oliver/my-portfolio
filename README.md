@@ -7,7 +7,7 @@ Portfólio pessoal de Alisson Oliveira, feito com React, TypeScript e Vite.
 - Página inicial com apresentação, trabalho selecionado, percurso, forma de trabalhar, stack e contato.
 - Uma página para cada projeto, com visão geral, diagrama animado de como funciona, decisões técnicas e stack.
 - Português e inglês, tema claro e escuro, ambos lembrados no navegador.
-- Animações que respeitam a preferência de movimento reduzido do sistema.
+- Seções que se constroem conforme a rolagem da página, com animações que respeitam a preferência de movimento reduzido do sistema.
 
 ## Stack
 
@@ -44,7 +44,6 @@ src/
 
 - Novo projeto ou ajuste de texto: `src/data/projects.ts`. Cada texto tem uma versão em português e outra em inglês, criadas com `l("português", "inglês")`.
 - Percurso, princípios, stack e contato: `src/data/profile.ts`.
-- Projetos marcados com `draft: true` mostram o aviso "a aprovar". Remova o campo quando o conteúdo estiver aprovado.
 
 ## Scripts
 

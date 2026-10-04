@@ -5,7 +5,8 @@ import { findProject, projects } from "../data/projects";
 import { useLanguage } from "../context/language";
 import { useTransition } from "../context/transition";
 import { Diagram } from "../components/Diagram";
-import { RevealItem } from "../components/RevealItem";
+import { Reveal } from "../components/Reveal";
+import { Rise } from "../components/Rise";
 
 function Meta({ label, children }: { label: string; children: ReactNode }) {
   return (
@@ -74,20 +75,21 @@ export function ProjectPage() {
 
         <section className="pv">
           <div className="cols">
-            <h2>{tr(copy.overview)}</h2>
+            <Rise>{tr(copy.overview)}</Rise>
             <div className="tx">
               {project.overview.map((paragraph) => (
-                <p key={paragraph.en}>{tr(paragraph)}</p>
+                <Reveal as="p" line={false} key={paragraph.en}>
+                  {tr(paragraph)}
+                </Reveal>
               ))}
-              {project.draft && <p>{tr(copy.draftNote)}</p>}
             </div>
           </div>
         </section>
       </div>
 
-      <section className="dgband blue">
+      <section className="dgband band">
         <div className="wrap">
-          <h2>{tr(copy.howItWorks)}</h2>
+          <Rise>{tr(copy.howItWorks)}</Rise>
           <div className="dgw">
             <Diagram key={project.id} spec={project.diagram} />
           </div>
@@ -99,13 +101,13 @@ export function ProjectPage() {
         {project.decisions.length > 0 && (
           <section className="dec">
             <div className="cols">
-              <h2>{tr(copy.decisions)}</h2>
+              <Rise>{tr(copy.decisions)}</Rise>
               <ol>
                 {project.decisions.map((decision, index) => (
-                  <RevealItem key={decision.title.en} delay={index * 0.08}>
+                  <Reveal as="li" key={decision.title.en} delay={index * 0.08}>
                     <h3>{tr(decision.title)}</h3>
                     <p>{tr(decision.text)}</p>
-                  </RevealItem>
+                  </Reveal>
                 ))}
               </ol>
             </div>

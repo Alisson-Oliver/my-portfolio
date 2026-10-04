@@ -1,25 +1,27 @@
+import { useEffect, useRef, useState } from "react";
 import { copy } from "../data/copy";
 import { career, contact, principles, quote, stack } from "../data/profile";
-import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "../context/language";
-import { RevealItem } from "./RevealItem";
+import { Reveal } from "./Reveal";
+import { Rise } from "./Rise";
+import { ScrollWords } from "./ScrollWords";
 
 export function CareerSection() {
   const { tr } = useLanguage();
   return (
     <section id="percurso" className="path">
       <div className="grid">
-        <h2>{tr(copy.career)}</h2>
+        <Rise>{tr(copy.career)}</Rise>
         <ol className="tl">
           {career.map((item, index) => (
-            <RevealItem key={item.title.en + item.org} delay={index * 0.05}>
+            <Reveal as="li" key={item.title.en + item.org} delay={index * 0.05}>
               <div className="d">{tr(item.date)}</div>
               <div>
                 <h3>{tr(item.title)}</h3>
                 <div className="o">{item.org}</div>
                 {item.text && <p>{tr(item.text)}</p>}
               </div>
-            </RevealItem>
+            </Reveal>
           ))}
         </ol>
       </div>
@@ -32,13 +34,13 @@ export function PrinciplesSection() {
   return (
     <section className="how">
       <div className="grid">
-        <h2>{tr(copy.howIWork)}</h2>
+        <Rise>{tr(copy.howIWork)}</Rise>
         <ul>
           {principles.map((item, index) => (
-            <RevealItem key={item.title.en} delay={index * 0.05}>
+            <Reveal as="li" key={item.title.en} delay={index * 0.05}>
               <h3>{tr(item.title)}</h3>
               <p>{tr(item.text)}</p>
-            </RevealItem>
+            </Reveal>
           ))}
         </ul>
       </div>
@@ -50,7 +52,7 @@ export function QuoteSection() {
   const { tr } = useLanguage();
   return (
     <section className="quote">
-      <p>{tr(quote)}</p>
+      <ScrollWords text={tr(quote)} />
     </section>
   );
 }
@@ -59,13 +61,13 @@ export function StackSection() {
   const { tr } = useLanguage();
   return (
     <section id="stack" className="stack">
-      <h2>{tr(copy.stack)}</h2>
+      <Rise>{tr(copy.stack)}</Rise>
       <dl>
-        {stack.map((row) => (
-          <div className="srow" key={row.group.en}>
+        {stack.map((row, index) => (
+          <Reveal className="srow" key={row.group.en} delay={index * 0.06}>
             <dt>{tr(row.group)}</dt>
             <dd>{row.items}</dd>
-          </div>
+          </Reveal>
         ))}
       </dl>
     </section>
@@ -99,11 +101,13 @@ export function ContactSection() {
 
   return (
     <section id="contato" className="contact">
-      <h2>{tr(copy.talk)}</h2>
-      <a ref={mail} className="mail" href={`mailto:${contact.email}`}>
-        {contact.email}
-      </a>
-      <div className="cr">
+      <Rise>{tr(copy.talk)}</Rise>
+      <Reveal line={false} delay={0.15}>
+        <a ref={mail} className="mail" href={`mailto:${contact.email}`}>
+          {contact.email}
+        </a>
+      </Reveal>
+      <Reveal line={false} delay={0.3} className="cr">
         <button type="button" onClick={copyEmail}>
           {tr(copied ? copy.copied : copy.copyEmail)}
         </button>
@@ -113,7 +117,7 @@ export function ContactSection() {
         <a href={contact.github} target="_blank" rel="noopener noreferrer">
           GitHub
         </a>
-      </div>
+      </Reveal>
       <footer>
         <span>Alisson Oliveira</span>
         <span>{tr(copy.location)}</span>

@@ -19,8 +19,8 @@ export const heroFacts: { label: Localized; value: Localized }[] = [
 ];
 
 export const heroLead = l(
-  "Construo sistemas internos do banco de dados à tela. Prefiro o caminho direto, deixo tudo auditável e documento para que outra pessoa consiga seguir.",
-  "I build internal systems from the database to the screen. I choose the direct path, make everything auditable and document it so someone else can follow.",
+  "Desenvolvedor full stack com foco em backend. Analítico, atento à segurança e à documentação, projeto sistemas padronizados e escaláveis.",
+  "Full stack developer with a backend focus. Analytical, security-minded and documentation-driven, I design standardized, scalable systems.",
 );
 
 export const career: { date: Localized; title: Localized; org: string; text?: Localized }[] = [
@@ -69,31 +69,52 @@ export const career: { date: Localized; title: Localized; org: string; text?: Lo
 
 export const principles: { title: Localized; text: Localized }[] = [
   {
+    title: l("Analítico", "Analytical"),
+    text: l(
+      "Entendo o problema e os dados por inteiro antes de escolher uma solução.",
+      "I understand the problem and the data in full before choosing a solution.",
+    ),
+  },
+  {
     title: l("Penso antes de agir", "Think before acting"),
     text: l(
-      "Leio o que já existe, digo o que entendi e proponho um plano antes de mexer em qualquer coisa.",
-      "I read what already exists, state what I understood and propose a plan before touching anything.",
+      "Planejo, levanto os riscos e só então executo.",
+      "I plan, map the risks and only then execute.",
     ),
   },
   {
-    title: l("Assumo a entrega", "Own the delivery"),
+    title: l("Segurança desde o início", "Security from the start"),
     text: l(
-      "Rodo, testo e digo como voltar atrás. Um sistema só está pronto quando funciona em produção.",
-      "I run it, test it and say how to roll back. A system is only done when it works in production.",
+      "Trato segurança como parte do desenho do sistema, e não como uma etapa no final.",
+      "I treat security as part of the system design, not as a step at the end.",
     ),
   },
   {
-    title: l("Deixo auditável", "Make it auditable"),
+    title: l("Documentação", "Documentation"),
     text: l(
-      "Toda ação crítica deixa registro de quem fez, o que mudou e quando.",
-      "Every critical action leaves a record of who did it, what changed and when.",
+      "Registro decisões, padrões e manuais para que qualquer pessoa consiga seguir e manter o que foi feito.",
+      "I record decisions, standards and manuals so anyone can follow and maintain what was built.",
     ),
   },
   {
-    title: l("Documento para os outros", "Document for others"),
+    title: l("Padronização", "Standardization"),
     text: l(
-      "Padrões, índices e manuais para que o time não dependa da minha memória.",
-      "Standards, indexes and manuals so the team does not depend on my memory.",
+      "Prefiro padrões claros e repetíveis a soluções isoladas que só quem fez entende.",
+      "I prefer clear, repeatable standards over one-off solutions only their author understands.",
+    ),
+  },
+  {
+    title: l("Sistemas escaláveis", "Scalable systems"),
+    text: l(
+      "Desenho pensando no crescimento, para que o sistema continue funcionando quando a demanda aumentar.",
+      "I design with growth in mind, so the system keeps working when demand increases.",
+    ),
+  },
+  {
+    title: l("Evolução contínua", "Continuous growth"),
+    text: l(
+      "Busco melhorar a cada projeto, tanto tecnicamente quanto na comunicação e no comportamento.",
+      "I look to improve with every project, both technically and in communication and behavior.",
     ),
   },
 ];

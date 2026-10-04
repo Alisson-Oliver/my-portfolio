@@ -1,24 +1,43 @@
-import { About } from "../sections/About";
-import { Contact } from "../sections/Contact";
-import { Hero } from "../sections/Hero";
-import { Projects } from "../sections/Projects";
-import { Skills } from "../sections/Skills";
-import { TechBackground } from "../components/TechBackground";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { copy } from "../data/copy";
+import { useLanguage } from "../context/language";
+import { Hero } from "../components/Hero";
+import { WorkSection } from "../components/WorkSection";
+import {
+  CareerSection,
+  ContactSection,
+  PrinciplesSection,
+  QuoteSection,
+  StackSection,
+} from "../components/HomeSections";
 
 export function HomePage() {
-  return (
-    <div className="relative">
-      <div className="pointer-events-none fixed inset-0 z-0">
-        <TechBackground intensity={0.7} zIndex={0} />
-      </div>
+  const { hash } = useLocation();
+  const { tr } = useLanguage();
 
-      <div className="relative z-10">
-        <Hero />
-        <About />
-        <Projects />
-        <Skills />
-        <Contact />
+  useEffect(() => {
+    document.title = "Alisson Oliveira";
+    const meta = document.querySelector('meta[name="description"]');
+    meta?.setAttribute("content", tr(copy.metaDescription));
+  }, [tr]);
+
+  useEffect(() => {
+    if (!hash) return;
+    document.getElementById(hash.slice(1))?.scrollIntoView({ behavior: "auto", block: "start" });
+  }, [hash]);
+
+  return (
+    <>
+      <Hero />
+      <WorkSection />
+      <div className="wrap">
+        <CareerSection />
+        <PrinciplesSection />
+        <QuoteSection />
+        <StackSection />
+        <ContactSection />
       </div>
-    </div>
+    </>
   );
 }

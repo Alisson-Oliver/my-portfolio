@@ -1,10 +1,27 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alisson Dev</title>
+    <meta name="description" content="Portfólio de Alisson Oliveira, desenvolvedor de software full stack com foco em backend." />
+    <meta name="theme-color" content="#0a4f4c" />
+    <title>Alisson Oliveira</title>
+    <script>
+      (function () {
+        var theme = null;
+        try {
+          theme = localStorage.getItem("theme");
+        } catch (e) {}
+        if (theme !== "light" && theme !== "dark") {
+          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", theme);
+        try {
+          if (localStorage.getItem("lang") === "en") document.documentElement.lang = "en";
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

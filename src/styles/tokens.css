@@ -1,0 +1,193 @@
+:root {
+  --bg: #f2f3f6;
+  --fg: #0e1230;
+  --mut: #5b617a;
+  --line: #d3d6e2;
+  --acc: #1f2be0;
+  --blue: #1f2be0;
+  --blue-fg: #f2f3f6;
+  --blue-mut: #b9bffa;
+  --blue-line: rgba(242, 243, 246, 0.28);
+  --d: "Familjen Grotesk Variable", "Helvetica Neue", Arial, sans-serif;
+  --s: "Source Serif 4 Variable", Georgia, serif;
+  --pad: clamp(16px, 6vw, 96px);
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0b0e24;
+  --fg: #eceefa;
+  --mut: #9aa1c4;
+  --line: #252a4a;
+  --acc: #929bff;
+  --blue: #1a24c4;
+  --blue-fg: #f2f3f6;
+  --blue-mut: #b4baf7;
+  --blue-line: rgba(242, 243, 246, 0.3);
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 18px/1.7 var(--s);
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--acc);
+  outline-offset: 3px;
+}
+
+.blue :focus-visible {
+  outline-color: var(--blue-fg);
+}
+
+.wrap {
+  padding-inline: var(--pad);
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.prog {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 3px;
+  width: 100%;
+  background: var(--acc);
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: 40;
+}
+
+.wipe {
+  position: fixed;
+  inset: 0;
+  background: var(--blue);
+  transform: translateY(100%);
+  z-index: 60;
+  pointer-events: none;
+}
+
+.blue {
+  background: var(--blue);
+  color: var(--blue-fg);
+  --fg: var(--blue-fg);
+  --mut: var(--blue-mut);
+  --line: var(--blue-line);
+  --acc: var(--blue-fg);
+}
+
+.rv {
+  position: relative;
+  border-top: 0 !important;
+}
+
+.rv::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: var(--line);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1s var(--ease) var(--dl, 0s);
+}
+
+.rv.in::before {
+  transform: scaleX(1);
+}
+
+h2 {
+  margin: 0;
+  font: 600 clamp(32px, 4.6vw, 64px) / 1 var(--d);
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+h1 {
+  margin: 0;
+  font: 700 clamp(56px, 15.5vw, 240px) / 0.86 var(--d);
+  letter-spacing: -0.045em;
+}
+
+h1 .ln {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+}
+
+h1 .ln span {
+  display: block;
+  animation: rise 0.95s var(--ease) both;
+}
+
+h1 .ln:nth-child(2) span {
+  animation-delay: 0.12s;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes fadeup {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+section {
+  scroll-margin-top: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .nd,
+  .fl {
+    opacity: 1 !important;
+  }
+}

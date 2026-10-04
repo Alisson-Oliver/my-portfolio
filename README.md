@@ -1,129 +1,63 @@
 # My Portfolio
 
-Portfólio pessoal desenvolvido com React + TypeScript + Vite, com foco em apresentar:
+Portfólio pessoal de Alisson Oliveira, feito com React, TypeScript e Vite.
 
-- quem eu sou;
-- projetos selecionados;
-- stack e habilidades;
-- canais de contato.
+## O que tem
 
-## Objetivo
+- Página inicial com apresentação, trabalho selecionado, percurso, forma de trabalhar, stack e contato.
+- Uma página para cada projeto, com visão geral, diagrama animado de como funciona, decisões técnicas e stack.
+- Português e inglês, tema claro e escuro, ambos lembrados no navegador.
+- Animações que respeitam a preferência de movimento reduzido do sistema.
 
-Este projeto funciona como minha vitrine técnica e profissional.
+## Stack
 
-Os principais objetivos são:
+- React 19, TypeScript e Vite
+- React Router
+- CSS puro com tokens de cor e tipografia (Familjen Grotesk e Source Serif 4, via Fontsource)
 
-- centralizar minhas informações profissionais em uma única página;
-- exibir projetos e tecnologias de forma clara;
-- manter uma base simples de evoluir (conteúdo em arquivos de dados e interface separada por seções/componentes).
-
-## Stack utilizada
-
-- React 19
-- TypeScript
-- Vite 8
-- Tailwind CSS 4
-- Framer Motion
-- Lucide React e React Icons
-
-## Estrutura atual do projeto
-
-A aplicação está organizada em blocos simples:
+## Estrutura
 
 ```text
 src/
-  App.tsx                 # Orquestra as seções da página
-  main.tsx                # Bootstrap da aplicação
-  index.css               # Tema, tokens visuais e estilos globais
+  main.tsx                  Entrada da aplicação
+  App.tsx                   Provedores e rotas
+  index.css                 Importa os estilos
 
-  sections/               # Blocos principais da landing page
-    Hero.tsx
-    About.tsx
-    Projects.tsx
-    Skills.tsx
-    Contact.tsx
+  styles/
+    tokens.css              Cores, tipografia, base e animações globais
+    home.css                Cabeçalho e seções da página inicial
+    project.css             Página de projeto e diagrama
 
-  components/             # Componentes reutilizáveis das seções
-    Header.tsx
-    AboutCard.tsx
-    ProjectCard.tsx
-    SkillCard.tsx
-    ContactCard.tsx
+  data/                     Conteúdo separado da interface
+    types.ts                Tipos e o helper de texto bilíngue
+    projects.ts             Projetos, decisões e diagramas
+    profile.ts              Percurso, princípios, stack e contato
+    copy.ts                 Textos da interface
 
-  data/                   # Conteúdo separado da UI (por domínio)
-    hero/hero.ts
-    about/about.ts
-    about/softSkills.ts
-    projects/projects.ts
-    projects/projectsList.ts
-    skills/skills.ts
-    skills/skillsList.ts
-    contacts/contactsList.ts
-
-  utils/
-    getAlias.ts           # Gera alias a partir do nome completo
+  context/                  Idioma, tema e transição entre páginas
+  hooks/                    useInView e useMediaQuery
+  components/               Cabeçalho, seções, diagrama e barra de progresso
+  pages/                    HomePage e ProjectPage
 ```
 
-## Como o app está estruturado em runtime
+## Como editar o conteúdo
 
-`App.tsx` monta a página nesta ordem:
-
-1. Header
-2. Hero
-3. About
-4. Projects
-5. Skills
-6. Contact
-
-Cada seção consome dados de `src/data/...`, o que facilita editar conteúdo sem mexer na estrutura dos componentes.
-
-## Configurações que estão em uso
-
-### Vite
-
-- Plugins ativos: React e Tailwind via `@tailwindcss/vite`.
-- Alias configurado:
-  - `@` -> `./src`
-
-Arquivo: `vite.config.ts`.
-
-### TypeScript
-
-- Projeto dividido em:
-  - `tsconfig.app.json` (aplicação React)
-  - `tsconfig.node.json` (ambiente Node, ex.: Vite config)
-- Paths ativos:
-  - `@/*` -> `./src/*`
-  - `@components/*` -> `./src/components/*`
-
-### Tailwind e tema
-
-- Tailwind v4 com `@import "tailwindcss"` em `src/index.css`.
-- Tokens de cor, tipografia e utilitários visuais (como `.glass` e `.text-gradient`) definidos no CSS global.
-
-### ESLint
-
-Configuração com:
-
-- `@eslint/js`
-- `typescript-eslint`
-- `eslint-plugin-react-hooks`
-- `eslint-plugin-react-refresh`
-
-Arquivo: `eslint.config.js`.
+- Novo projeto ou ajuste de texto: `src/data/projects.ts`. Cada texto tem uma versão em português e outra em inglês, criadas com `l("português", "inglês")`.
+- Percurso, princípios, stack e contato: `src/data/profile.ts`.
+- Projetos marcados com `draft: true` mostram o aviso "a aprovar". Remova o campo quando o conteúdo estiver aprovado.
 
 ## Scripts
 
-- `npm run dev` -> sobe ambiente de desenvolvimento
-- `npm run build` -> executa TypeScript build + Vite build
-- `npm run preview` -> preview da build de produção
-- `npm run lint` -> validação com ESLint
+- `npm run dev`: ambiente de desenvolvimento
+- `npm run build`: checagem de tipos e build de produção
+- `npm run preview`: serve a build de produção
+- `npm run lint`: validação com ESLint
 
 ## Como rodar localmente
 
 ```bash
 npm install
-npm run dev -- --host
+npm run dev
 ```
 
 Depois, acesse a URL exibida no terminal (normalmente `http://localhost:5173`).

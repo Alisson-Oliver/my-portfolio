@@ -1,0 +1,288 @@
+.back {
+  all: unset;
+  cursor: pointer;
+  font: 500 15px var(--d);
+  color: var(--mut);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.back:hover {
+  color: var(--fg);
+}
+
+.back:focus-visible {
+  outline: 2px solid var(--acc);
+  outline-offset: 3px;
+}
+
+.ph {
+  padding-block: clamp(36px, 6vw, 80px) clamp(40px, 6vw, 80px);
+}
+
+.ph .kind {
+  font-size: 17px;
+  margin-bottom: 18px;
+  animation: fadeup 0.8s var(--ease) both;
+}
+
+.ph h1 {
+  font-size: clamp(40px, 9vw, 140px);
+}
+
+.ph .one {
+  font: 400 clamp(21px, 2.4vw, 32px) / 1.4 var(--s);
+  max-width: 28em;
+  margin: clamp(28px, 4vw, 52px) 0 0;
+  animation: fadeup 0.9s var(--ease) 0.5s both;
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin: clamp(36px, 5vw, 64px) 0 0;
+  padding: 22px 0 0;
+  border-top: 1px solid var(--line);
+  font: 400 15px / 1.5 var(--d);
+  animation: fadeup 0.9s var(--ease) 0.75s both;
+}
+
+.meta dt {
+  color: var(--mut);
+  margin-bottom: 2px;
+}
+
+.meta dd {
+  margin: 0;
+}
+
+.meta a {
+  text-underline-offset: 0.2em;
+}
+
+.pv {
+  padding-block: clamp(40px, 6vw, 90px);
+}
+
+.pv .cols,
+.dec .cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr);
+  gap: clamp(24px, 6vw, 96px);
+}
+
+.pv .tx p {
+  margin: 0 0 20px;
+  font: 400 clamp(19px, 1.9vw, 24px) / 1.6 var(--s);
+  max-width: 32em;
+}
+
+.dgband {
+  padding-block: clamp(48px, 7vw, 100px);
+}
+
+.dgband .cap {
+  margin: 28px 0 0;
+  font: 400 18px / 1.6 var(--s);
+  max-width: 34em;
+  color: var(--blue-mut);
+}
+
+.dgw {
+  margin-top: clamp(24px, 4vw, 48px);
+  overflow-x: auto;
+}
+
+.dg {
+  display: block;
+  width: 100%;
+  min-width: 620px;
+  height: auto;
+  overflow: visible;
+}
+
+.eg {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 1.5;
+}
+
+.fl {
+  fill: none;
+  stroke: var(--fg);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 9;
+  opacity: 0;
+}
+
+.pk {
+  fill: var(--fg);
+  opacity: 0;
+}
+
+.go .pk {
+  opacity: 1;
+}
+
+.nd {
+  opacity: 0;
+}
+
+.nd rect {
+  fill: var(--blue);
+  stroke: var(--fg);
+  stroke-width: 1.5;
+}
+
+.nd .l {
+  fill: var(--fg);
+  font: 600 15px var(--d);
+}
+
+.nd .s {
+  fill: var(--mut);
+  font: 400 12.5px var(--d);
+}
+
+.go .nd {
+  animation: pop 0.7s var(--ease) both;
+  animation-delay: calc(var(--i) * 0.1s);
+}
+
+.go .fl {
+  animation:
+    flow 1.4s linear infinite,
+    show 0.6s ease both;
+  animation-delay: 0s, calc(0.5s + var(--i) * 0.08s);
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: -14;
+  }
+}
+
+@keyframes show {
+  to {
+    opacity: 0.9;
+  }
+}
+
+.dec {
+  padding-block: clamp(48px, 7vw, 100px);
+  border-top: 1px solid var(--line);
+}
+
+.dec ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dec li {
+  display: grid;
+  grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+  gap: 24px;
+  padding: 24px 0;
+}
+
+.dec li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.dec h3 {
+  margin: 0;
+  font: 600 21px / 1.25 var(--d);
+  letter-spacing: -0.012em;
+}
+
+.dec p {
+  margin: 0;
+  font-size: 17.5px;
+  max-width: 34em;
+}
+
+.pst {
+  padding-block: 0 clamp(48px, 7vw, 100px);
+}
+
+.pst dl {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr);
+  gap: clamp(24px, 6vw, 96px);
+  margin: 0;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.pst dt {
+  font: 600 clamp(24px, 2.6vw, 36px) / 1 var(--d);
+  letter-spacing: -0.02em;
+}
+
+.pst dd {
+  margin: 0;
+  font: 400 clamp(19px, 2vw, 26px) / 1.45 var(--s);
+}
+
+.nx {
+  all: unset;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  padding-block: clamp(40px, 6vw, 80px);
+  border-top: 1px solid var(--line);
+}
+
+.nx:focus-visible {
+  outline: 2px solid var(--acc);
+  outline-offset: 3px;
+}
+
+.nx small {
+  display: block;
+  font: 500 15px var(--d);
+  color: var(--mut);
+  margin-bottom: 8px;
+}
+
+.nx span {
+  display: block;
+  font: 700 clamp(40px, 9vw, 140px) / 0.95 var(--d);
+  letter-spacing: -0.04em;
+  transition: transform 0.5s var(--ease);
+}
+
+.nx:hover span {
+  transform: translateX(16px);
+}
+
+@media (max-width: 900px) {
+  .pv .cols,
+  .dec .cols,
+  .pst dl {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dec li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+  }
+
+  .meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

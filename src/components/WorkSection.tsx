@@ -14,9 +14,7 @@ function ProjectSummary({ project }: { project: Project }) {
   return (
     <div className="det">
       <p className="kind">{tr(project.kind)}</p>
-      <h3>
-        {tr(project.name)}
-      </h3>
+      <h3>{tr(project.name)}</h3>
       <p>{tr(project.overview[0])}</p>
       <p className="st">
         <b>{tr(copy.builtWith)}</b>
